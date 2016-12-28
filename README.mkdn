@@ -1,15 +1,15 @@
-Device Tree for ARK Benefit A3(peach)
+Unified Device Tree for Lenovo A6000 (wt86518)
 ============================================================
 Basic   | Specification List
 -------:|:-------------------------
-CPU     | Quad-core 1.2 GHz ARM® Cortex™ A53
+CPU     | Quad-core 1.2 GHz ARMÂ® Cortexâ„¢ A53
 CHIPSET | Qualcomm MSM8916 Snapdragon 410
 GPU     | Adreno 306
-Memory  | 1 GB
-Shipped Android Version | 5.0.2
-Storage | 8 GB
-MicroSD | Up to 128 GB
-Battery | 2100 mAh (removable)
-Display | 720 x 1280 pixels, 5"
-Rear Camera  | 8.0 MP Dual-Flash
+Memory  | 1/2 GB
+Shipped Android Version | 4.4.4
+Storage | 8/16 GB
+MicroSD | Up to 32 GB
+Battery | 2300 mAh (removable)
+Display | 720 x 1280 pixels, 5" (294ppi)
+Rear Camera  | 8.0 MP
 Front Camera | 2.0 MP

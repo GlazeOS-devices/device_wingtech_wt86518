@@ -12,27 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/ark/peach/full_peach.mk)
+$(call inherit-product, device/lenovo/wt86518/full_wt86518.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-#Assert
-TARGET_OTA_ASSERT_DEVICE := peach,benefit,ark_benefit_a3,benefit_a3,a3,ark
-
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := cm_peach
-BOARD_VENDOR := ark
-PRODUCT_DEVICE := peach
+PRODUCT_NAME := cm_wt86518
+BOARD_VENDOR := lenovo
+PRODUCT_DEVICE := wt86518
 
-PRODUCT_GMS_CLIENTID_BASE := android-elephone
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
-PRODUCT_MANUFACTURER := ARK
-PRODUCT_MODEL := Benefit A3
+PRODUCT_MANUFACTURER := Lenovo
+PRODUCT_MODEL := Lenovo A6000
 
-PRODUCT_BRAND := ARK
-TARGET_VENDOR := ark
-TARGET_VENDOR_PRODUCT_NAME := peach
-TARGET_VENDOR_DEVICE_NAME := peach
+PRODUCT_BRAND := Lenovo
+TARGET_VENDOR := Lenovo
+TARGET_VENDOR_PRODUCT_NAME := A6000
+TARGET_VENDOR_DEVICE_NAME := wt86518

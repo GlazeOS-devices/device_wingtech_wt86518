@@ -11,5 +11,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
     persist.camera.hal.debug.mask=0 \
+    camera2.portability.force_api=1
+
+# Force legacy HAL1 HAX
+PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true

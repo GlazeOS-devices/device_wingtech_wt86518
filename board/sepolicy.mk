@@ -1,3 +1,3 @@
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/ark/peach/sepolicy
+    device/wingtech/wt86518/sepolicy

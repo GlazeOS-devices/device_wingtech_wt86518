@@ -18,8 +18,8 @@
 set -e
 
 # Required!
-DEVICE=peach
-VENDOR=ark
+DEVICE=wt86518
+VENDOR=wingtech
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -60,4 +60,3 @@ EOF
 
 # We are done!
 write_footers
-

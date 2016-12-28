@@ -1,6 +1,8 @@
 # Sensors
 PRODUCT_PACKAGES += \
-    sensord \
+    calmodule.cfg \
+    libcalmodule_akm.so \
+    libcalmodule_common \
     sensors.msm8916
 
 # Permissions

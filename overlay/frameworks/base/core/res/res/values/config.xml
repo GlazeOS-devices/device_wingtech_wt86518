@@ -19,7 +19,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-
     <!-- Traffic stats -->
     <string name="config_datause_iface">rmnet0</string>
 
@@ -46,11 +45,12 @@
     <integer-array name="config_autoBrightnessLevels">
         <item>10</item>
         <item>30</item>
-        <item>60</item>
         <item>100</item>
-        <item>150</item>
-        <item>210</item>
-        <item>255</item>
+        <item>200</item>
+        <item>400</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -59,14 +59,15 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
-        <item>255</item>
+        <item>12</item>   <!-- 0-10 -->
+        <item>46</item>   <!-- 10-30 -->
+        <item>126</item>   <!-- 30-100 -->
+        <item>148</item>   <!-- 100-200 -->
+        <item>148</item>   <!-- 200-400 -->
+        <item>168</item>   <!-- 400-1000 -->
+        <item>200</item>  <!-- 1000-2000 -->
+        <item>226</item>  <!-- 2000-3000 -->
+        <item>255</item>  <!-- 3000+ -->
     </integer-array>
 
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
@@ -81,7 +82,7 @@
             64 - Volume keys
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">71</integer>
+    <integer name="config_deviceHardwareKeys">83</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -107,19 +108,22 @@
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnHomeBehavior">2</integer>
+    <integer name="config_longPressOnHomeBehavior">3</integer>
 
-    <!-- Control the behavior when the user long presses the menu button.
+    <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
             1 - Menu key
             2 - Recent apps view in SystemUI
             3 - Launch assist intent
             4 - Voice Search
             5 - In-app Search
+            6 - Launch camera
+            7 - Turn screen off
+            8 - Last app
          This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
+         services/core/java/com/android/server/policy/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnMenuBehavior">0</integer>
+    <integer name="config_longPressOnAppSwitchBehavior">1</integer>
 
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
@@ -145,18 +149,19 @@
          memory over what the kernel keeps by default.  -1 keeps the default. -->
     <integer name="config_extraFreeKbytesAbsolute">61440</integer>
 
-    <!-- Flag specifying whether VoLTE is available on device -->
-    <bool name="config_device_volte_available">true</bool>
-
-    <!-- Flag specifying whether VoLTE should be available for carrier: independent of
-         carrier provisioning. If false: hard disabled. If true: then depends on carrier
-         provisioning, availability etc -->
-    <bool name="config_carrier_volte_available">true</bool>
-
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of
          phone object irrespective of this config -->
     <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
+
+    <!-- Array of output values for keyboard backlight corresponding to the LUX values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         The brightness values must be between 0 and 255 and be non-decreasing.
+         This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessKeyboardBacklightValues"></integer-array>
+
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
 
     <!-- Default value for led color when battery is low on charge -->
     <integer name="config_notificationsBatteryLowARGB">0x00FF0000</integer>
@@ -173,28 +178,16 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- enable doze powersaving mode -->
-    <bool name="config_enableAutoPowerModes">true</bool>
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
-    <bool name="config_dozeAfterScreenOff">true</bool>
-    <integer name="config_screenBrightnessDoze">10</integer>
+    <!-- Our modem doesn't support this query yet -->
+    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
 
-    <!-- Values for GPS configuration -->
-    <string-array translatable="false" name="config_gpsParameters">
-        <item>SUPL_HOST=supl.google.com</item>
-        <item>SUPL_PORT=7275</item>
-        <item>XTRA_SERVER_1=http://xtrapath1.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_2=http://xtrapath2.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_3=http://xtrapath3.izatcloud.net/xtra2.bin</item>
-        <item>NTP_SERVER=north-america.pool.ntp.org</item>
-        <item>SUPL_MODE=1</item>
-        <item>SUPL_VER=0x20000</item>
-        <item>LPP_PROFILE=0</item>
-        <item>NMEA_PROVIDER=0</item>
-        <item>A_GLONASS_POS_PROTOCOL_SELECT=0</item>
-        <item>ERR_ESTIMATE=0</item>
-        <item>INTERMEDIATE_POS=0</item>
-        <item>SUPL_ES=0</item>
-    </string-array>
+    <!-- Enable overlay for all location components. -->
+    <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+    <bool name="config_enableFusedLocationOverlay" translatable="false">false</bool>
+    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+
+    <!-- Component name of the combo network location provider. -->
+    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>
 
 </resources>

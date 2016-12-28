@@ -15,7 +15,7 @@
 #
 
 # Inherit from msm8916-common
-$(call inherit-product, device/ark/msm8916-common/msm8916.mk)
+$(call inherit-product, device/cyanogen/msm8916-common/msm8916.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -23,4 +23,4 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
-$(call inherit-product-if-exists, vendor/ark/peach/peach-vendor.mk)
+$(call inherit-product-if-exists, vendor/wingtech/wt86518/wt86518-vendor.mk)
