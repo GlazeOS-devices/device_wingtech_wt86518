@@ -42,4 +42,4 @@ include device/wingtech/wt86518/board/*.mk
 TARGET_BOARD_INFO_FILE := device/wingtech/wt86518/board-info.txt
 
 # inherit from the proprietary version
--include vendor/google/seed/BoardConfigVendor.mk
+-include vendor/wingtech/wt86518/BoardConfigVendor.mk
