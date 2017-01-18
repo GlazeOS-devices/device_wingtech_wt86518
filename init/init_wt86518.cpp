@@ -41,6 +41,7 @@
 #include <unistd.h>
 
 #include "property_service.h"
+#include <sys/sysinfo.h>
 #include "vendor_init.h"
 #include "log.h"
 #include "util.h"
@@ -202,6 +203,13 @@ err_ret:
     return ret;
 }
 
+int is2GB()
+{
+    struct sysinfo sys;
+    sysinfo(&sys);
+    return sys.totalram > 1024ull * 1024 * 1024;
+}
+
 void vendor_load_properties()
 {
     char modem_version[IMG_VER_BUF_LEN];
@@ -210,6 +218,22 @@ void vendor_load_properties()
     std::string product = property_get("ro.product.name");
     if ((strstr(product.c_str(), "wt86518") == NULL))
         return;
+
+    if (is2GB()) {
+        property_set("dalvik.vm.heapstartsize", "8m");
+        property_set("dalvik.vm.heapgrowthlimit", "192m");
+        property_set("dalvik.vm.heapsize", "512m");
+        property_set("dalvik.vm.heaptargetutilization", "0.75");
+        property_set("dalvik.vm.heapminfree", "512k");
+        property_set("dalvik.vm.heapmaxfree", "8m");
+    } else {
+        property_set("dalvik.vm.heapstartsize", "8m");
+        property_set("dalvik.vm.heapgrowthlimit", "96m");
+        property_set("dalvik.vm.heapsize", "256m");
+        property_set("dalvik.vm.heaptargetutilization", "0.75");
+        property_set("dalvik.vm.heapminfree", "2m");
+        property_set("dalvik.vm.heapmaxfree", "8m");
+    }
 
     import_kernel_cmdline(0, import_kernel_nv);
     property_set("ro.product.board", board_id);
