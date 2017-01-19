@@ -40,7 +40,7 @@ on boot
 
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 49152
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
     # Per-process reclaim
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
