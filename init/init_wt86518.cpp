@@ -246,13 +246,6 @@ void vendor_load_properties()
         property_set("ro.product.name", "Lenovo A6000");
         property_set("ro.telephony.default_network", "9,1");
         property_set("telephony.lteOnCdmaDevice", "0");
-    } else if (strcmp(board_id, "8SSP19A6") == 0) {
-        property_set("ro.build.product", "Lenovo");
-        property_set("ro.product.device", "A6000");
-        property_set("ro.product.model", "Lenovo A6000");
-        property_set("ro.product.name", "Lenovo A6000");
-        property_set("ro.telephony.default_network", "9,1");
-        property_set("telephony.lteOnCdmaDevice", "0");
     } else if (strcmp(board_id, "N7V1HB11") == 0) {
         property_set("ro.build.product", "Lenovo");
         property_set("ro.product.device", "A6000");
@@ -260,14 +253,6 @@ void vendor_load_properties()
         property_set("ro.product.name", "Lenovo A6000");
         property_set("ro.telephony.default_network", "9,1");
         property_set("telephony.lteOnCdmaDevice", "0");
-    } else if (strcmp(board_id, "N7V1HB11") == 0) {
-        property_set("ro.build.product", "Lenovo");
-        property_set("ro.product.device", "A6000");
-        property_set("ro.product.model", "Lenovo A6000");
-        property_set("ro.product.name", "Lenovo A6000");
-        property_set("ro.telephony.default_network", "22,1");
-        property_set("telephony.lteOnCdmaDevice", "1");
-        property_set("persist.radio.sglte.eons_domain", "ps");
     } else { /* including 8SSP19A6 and N7V1HB11 */
         property_set("ro.build.product", "Lenovo");
         property_set("ro.product.device", "A6000");
