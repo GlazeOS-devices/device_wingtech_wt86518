@@ -33,7 +33,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
-TARGET_QCOM_NO_FM_FIRMWARE := true
 
 -include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
