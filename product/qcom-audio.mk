@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluence \
-    persist.audio.fluence.voicecall=true \
+    ro.qc.sdk.audio.fluencetype=none \
+    persist.audio.fluence.voicecall=false \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=false

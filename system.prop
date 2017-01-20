@@ -79,11 +79,6 @@ ro.sys.fw.bservice_age=5000
 #
 # from device/lenovo/wt86518/system.prop
 #
-# Audio
-ro.qc.sdk.audio.fluencetype=fluence
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
 
 # set roaming indicator to always show
 ro.config.always_show_roaming=true
