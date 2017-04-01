@@ -14,14 +14,14 @@
 
 $(call inherit-product, device/wingtech/wt86518/full_wt86518.mk)
 
-# Inherit some common cm stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Glaze stuff.
+$(call inherit-product, vendor/glaze/config/common_full_phone.mk)
 
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 TARGET_OTA_ASSERT_DEVICE := Kraft-T,K30T,K30-T,A6000,Kraft-W,Kraft-C,k30t,msm8916,Kraft-A6000,wt86518
 
-PRODUCT_NAME := lineage_wt86518
+PRODUCT_NAME := glaze_wt86518
 BOARD_VENDOR := wingtech
 PRODUCT_DEVICE := wt86518
 
